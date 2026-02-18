@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play - Facial Expression Game</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main class="game-container">
+    <h1>Facial Expression Game</h1>
+
+    <div class="game-area">
+      <div class="game-webcam">
+        <video id="webcam" autoplay playsinline></video>
+      </div>
+      <div class="game-canvas-wrapper">
+        <canvas id="game-canvas"></canvas>
+        <div class="game-score" id="score-display">Score: 0</div>
+      </div>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn btn-primary" id="start-btn">Start Game</button>
+    </div>
+
+    <!-- Game over overlay -->
+    <div class="overlay hidden" id="game-over">
+      <div class="overlay-card">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="final-score">0</span></p>
+        <button class="btn btn-primary" id="submit-score-btn">Submit Score</button>
+        <button class="btn" id="play-again-btn">Play Again</button>
+        <p class="auth-error" id="score-msg"></p>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/js/nav.js"></script>
+  <script type="module" src="/js/game.js"></script>
+</body>
+</html>
