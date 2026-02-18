@@ -1,0 +1,18 @@
+{
+  "name": "cs5610-project2",
+  "version": "1.0.0",
+  "description": "Facial Expression Control Game and Leaderboard",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0"
+  }
+}

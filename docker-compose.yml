@@ -1,0 +1,31 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: cs5610-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build: .
+    container_name: cs5610-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/cs5610-project2
+      - JWT_SECRET=change-this-to-a-random-secret
+    depends_on:
+      - mongo
+    develop:
+      watch:
+        - action: sync
+          path: ./server
+          target: /app/server
+        - action: sync
+          path: ./public
+          target: /app/public
+
+volumes:
+  mongo-data:
