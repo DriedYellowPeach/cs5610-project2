@@ -1,0 +1,33 @@
+/* === Hero === */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Home leaderboard preview === */
+.home-leaderboard {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.home-leaderboard h2 {
+  margin-bottom: 1rem;
+}
+
+.home-leaderboard .btn {
+  margin-top: 1rem;
+}

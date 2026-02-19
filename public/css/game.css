@@ -1,0 +1,83 @@
+/* === Game page === */
+.game-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.game-area {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.game-webcam video {
+  width: 200px;
+  border-radius: 8px;
+  border: 2px solid #d1d5db;
+  background: #000;
+}
+
+.game-canvas-wrapper {
+  position: relative;
+}
+
+#game-canvas {
+  width: 400px;
+  height: 300px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  background: #e0f2fe;
+}
+
+.game-score {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.game-controls {
+  margin-bottom: 1rem;
+}
+
+/* === Overlay (game over) === */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 280px;
+}
+
+.overlay-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.overlay-card p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.overlay-card .btn {
+  margin: 0.25rem;
+}

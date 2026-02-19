@@ -41,11 +41,7 @@ body {
 }
 
 button {
-  background: linear-gradient(
-    to bottom,
-    var(--tokyo-night-fg-blue),
-    var(--tokyo-night-fg-purple)
-  );
+  background: linear-gradient(to bottom, var(--tokyo-night-fg-blue), var(--tokyo-night-fg-purple));
   color: var(--tokyo-night-bg-dark);
   font-weight: bold;
   padding: 12px 24px;

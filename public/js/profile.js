@@ -66,7 +66,7 @@ async function loadScores() {
           <td>${i + 1}</td>
           <td>${s.score}</td>
           <td>${new Date(s.createdAt).toLocaleDateString()}</td>
-        </tr>`
+        </tr>`,
       )
       .join("");
   } catch {

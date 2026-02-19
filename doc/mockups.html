@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Mockups - Facial Expression Control Game</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f0f2f5; color: #1a1a1a; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; }
+    h2 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #333; }
+    p.caption { font-size: 0.85rem; color: #666; margin-bottom: 1rem; }
+
+    .mockup-section { margin-bottom: 3rem; }
+
+    .wireframe {
+      border: 2px solid #999;
+      border-radius: 8px;
+      background: #fff;
+      padding: 0;
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* --- Shared wireframe elements --- */
+    .w-nav {
+      background: #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      font-size: 0.85rem;
+    }
+    .w-nav .brand { font-weight: 700; font-size: 1rem; }
+    .w-nav .links { display: flex; gap: 12px; }
+    .w-nav .links span { padding: 2px 6px; border: 1px dashed #888; border-radius: 4px; font-size: 0.8rem; }
+
+    .w-body { padding: 20px; }
+
+    .w-box {
+      border: 1px dashed #aaa;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+      background: #fafafa;
+    }
+    .w-box.highlight { background: #e8f0fe; border-color: #6b9eff; }
+    .w-box.accent { background: #fff7e6; border-color: #f0b429; }
+
+    .w-btn {
+      display: inline-block;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      background: #e2e8f0;
+      margin: 4px;
+    }
+    .w-btn.primary { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+
+    .w-input {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 6px 10px;
+      width: 100%;
+      max-width: 300px;
+      margin: 4px 0;
+      font-size: 0.8rem;
+      background: #fff;
+      color: #999;
+    }
+
+    .w-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+    .w-table th, .w-table td {
+      border: 1px solid #ddd;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    .w-table th { background: #f1f5f9; font-weight: 600; }
+    .w-table tr.me { background: #e8f0fe; }
+
+    .w-row { display: flex; gap: 12px; margin-bottom: 12px; }
+    .w-col { flex: 1; }
+
+    .w-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px dashed #aaa;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #888;
+      background: #f5f5f5;
+    }
+    .w-avatar.small {
+      width: 36px;
+      height: 36px;
+      font-size: 0.6rem;
+    }
+
+    .w-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .w-pagination span {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+    }
+    .w-pagination span.active { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+
+    .w-hero {
+      text-align: center;
+      padding: 24px 16px;
+      border-bottom: 1px dashed #ccc;
+      margin-bottom: 16px;
+    }
+    .w-hero h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .w-hero p { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+
+    .w-game-area {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .w-webcam, .w-canvas {
+      border: 1px dashed #aaa;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #888;
+      background: #f9f9f9;
+      min-height: 200px;
+    }
+    .w-webcam { flex: 1; }
+    .w-canvas { flex: 2; position: relative; }
+
+    .w-modal {
+      border: 2px solid #333;
+      border-radius: 8px;
+      background: #fff;
+      padding: 20px;
+      max-width: 280px;
+      margin: 16px auto;
+      text-align: center;
+    }
+    .w-modal h4 { margin-bottom: 8px; }
+
+    .avatar-grid {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Design Mockups - Facial Expression Control Game</h1>
+
+<!-- ======================== HOME PAGE ======================== -->
+<div class="mockup-section">
+  <h2>Home Page</h2>
+  <p class="caption">Landing page with hero section and top-5 leaderboard preview.</p>
+  <div class="wireframe">
+    <div class="w-nav">
+      <span class="brand">FaceGame</span>
+      <div class="links">
+        <span>Home</span>
+        <span>Play</span>
+        <span>Leaderboard</span>
+      </div>
+      <div class="links"><span>Login</span></div>
+    </div>
+    <div class="w-body">
+      <div class="w-hero">
+        <h3>Facial Expression Control Game</h3>
+        <p>Play a Flappy Bird-style game using only your facial expressions!</p>
+        <span class="w-btn primary">Play Now</span>
+      </div>
+      <div class="w-box">
+        <strong>Top Scores</strong>
+        <table class="w-table" style="margin-top:8px;">
+          <thead><tr><th>#</th><th>Player</th><th>Score</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><u>Alice</u></td><td>1520</td></tr>
+            <tr><td>2</td><td><u>Bob</u></td><td>1340</td></tr>
+            <tr><td>3</td><td><u>Charlie</u></td><td>1180</td></tr>
+            <tr><td>4</td><td><u>Derek</u></td><td>990</td></tr>
+            <tr><td>5</td><td><u>Eve</u></td><td>870</td></tr>
+          </tbody>
+        </table>
+        <span class="w-btn">View Full Leaderboard</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== LOGIN PAGE ======================== -->
+<div class="mockup-section">
+  <h2>Login / Register Page</h2>
+  <p class="caption">Toggles between login and register mode. Register adds a username field.</p>
+  <div style="display: flex; gap: 2rem; max-width: 800px; margin: 0 auto; flex-wrap: wrap;">
+    <!-- Login mode -->
+    <div class="wireframe" style="flex:1; min-width: 340px;">
+      <div class="w-nav">
+        <span class="brand">FaceGame</span>
+        <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+        <div class="links"><span>Login</span></div>
+      </div>
+      <div class="w-body" style="text-align:center;">
+        <h3 style="margin-bottom:12px;">Login</h3>
+        <div><input class="w-input" placeholder="Email" /></div>
+        <div><input class="w-input" placeholder="Password" /></div>
+        <div style="margin-top:8px;"><span class="w-btn primary">Login</span></div>
+        <p style="font-size:0.8rem; margin-top:8px; color:#666;">Don't have an account? <u>Register</u></p>
+      </div>
+    </div>
+    <!-- Register mode -->
+    <div class="wireframe" style="flex:1; min-width: 340px;">
+      <div class="w-nav">
+        <span class="brand">FaceGame</span>
+        <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+        <div class="links"><span>Login</span></div>
+      </div>
+      <div class="w-body" style="text-align:center;">
+        <h3 style="margin-bottom:12px;">Register</h3>
+        <div><input class="w-input" placeholder="Email" /></div>
+        <div><input class="w-input" placeholder="Username" /></div>
+        <div><input class="w-input" placeholder="Password" /></div>
+        <div style="margin-top:8px;"><span class="w-btn primary">Register</span></div>
+        <p style="font-size:0.8rem; margin-top:8px; color:#666;">Already have an account? <u>Login</u></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== GAME PAGE ======================== -->
+<div class="mockup-section">
+  <h2>Game Page</h2>
+  <p class="caption">Webcam feed with face mesh overlay on the left, game canvas on the right. Info cards and game-over modal below.</p>
+  <div class="wireframe">
+    <div class="w-nav">
+      <span class="brand">FaceGame</span>
+      <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+      <div class="links"><span>Leo (user)</span> <span>Logout</span></div>
+    </div>
+    <div class="w-body">
+      <div class="w-game-area">
+        <div class="w-webcam">
+          <div style="text-align:center;">
+            <div>[Webcam Feed]</div>
+            <div style="font-size:0.7rem; margin-top:4px;">[Face Mesh Overlay]</div>
+            <div style="margin-top:6px;"><span class="w-btn" style="font-size:0.7rem;">Toggle Mesh</span></div>
+          </div>
+        </div>
+        <div class="w-canvas">
+          <div style="text-align:center;">
+            <div>[WASM Game Canvas]</div>
+            <div style="font-size:0.7rem; margin-top:4px;">1280 x 1080</div>
+          </div>
+        </div>
+      </div>
+      <div class="w-box">
+        <strong>Blend Shapes:</strong> browDownLeft: 0.12 | browInnerUp: 0.65
+      </div>
+      <div class="w-row">
+        <div class="w-box w-col">
+          <strong>Brow to Control</strong><br>
+          Raise brows = up<br>
+          Lower brows = down
+        </div>
+        <div class="w-box w-col">
+          <strong>Camera Required</strong><br>
+          Allow camera access<br>
+          when prompted
+        </div>
+        <div class="w-box w-col">
+          <strong>About Face Mesh</strong><br>
+          MediaPipe detects<br>
+          468 face landmarks
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem; color:#888; text-align:center; margin-bottom:8px;">Game Over Modal (appears when game ends):</p>
+      <div class="w-modal">
+        <h4>Game Over</h4>
+        <p style="font-size:0.9rem;">Your score: <strong>1280</strong></p>
+        <span class="w-btn primary">Submit Score</span>
+        <span class="w-btn">Play Again</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== LEADERBOARD PAGE ======================== -->
+<div class="mockup-section">
+  <h2>Leaderboard Page</h2>
+  <p class="caption">Paginated global leaderboard. Current user's scores are highlighted. Newly submitted scores have a special highlight.</p>
+  <div class="wireframe">
+    <div class="w-nav">
+      <span class="brand">FaceGame</span>
+      <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+      <div class="links"><span>Leo (user)</span> <span>Logout</span></div>
+    </div>
+    <div class="w-body">
+      <h3 style="margin-bottom:12px;">Global Leaderboard</h3>
+      <table class="w-table">
+        <thead><tr><th>#</th><th>Player</th><th>Score</th><th>Date</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><u>Alice</u></td><td>1520</td><td>2/18/2026</td></tr>
+          <tr><td>2</td><td><u>Bob</u></td><td>1340</td><td>2/17/2026</td></tr>
+          <tr class="me"><td>3</td><td><u>Leo</u></td><td>1280</td><td>2/19/2026</td></tr>
+          <tr><td>4</td><td><u>Charlie</u></td><td>1180</td><td>2/16/2026</td></tr>
+          <tr><td>5</td><td><u>Derek</u></td><td>990</td><td>2/15/2026</td></tr>
+          <tr><td>6</td><td><u>Eve</u></td><td>870</td><td>2/14/2026</td></tr>
+          <tr><td>7</td><td><u>Frank</u></td><td>810</td><td>2/13/2026</td></tr>
+          <tr><td>8</td><td><u>Grace</u></td><td>750</td><td>2/12/2026</td></tr>
+          <tr><td>9</td><td><u>Hank</u></td><td>680</td><td>2/11/2026</td></tr>
+          <tr><td>10</td><td><u>Ivy</u></td><td>620</td><td>2/10/2026</td></tr>
+        </tbody>
+      </table>
+      <div class="w-box highlight" style="font-size:0.75rem;">
+        Row 3 (Leo) is highlighted as the current user's score
+      </div>
+      <div class="w-pagination">
+        <span>Prev</span>
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>...</span>
+        <span>12</span>
+        <span>Next</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PROFILE PAGE (OWN) ======================== -->
+<div class="mockup-section">
+  <h2>User Profile Page (Own Profile)</h2>
+  <p class="caption">Shows avatar, username, member-since date, edit section (avatar picker + username change), and top scores.</p>
+  <div class="wireframe">
+    <div class="w-nav">
+      <span class="brand">FaceGame</span>
+      <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+      <div class="links"><span>Leo (user)</span> <span>Logout</span></div>
+    </div>
+    <div class="w-body">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+        <div class="w-avatar">avatar</div>
+        <div>
+          <h3>Leo</h3>
+          <p style="font-size:0.8rem; color:#888;">Member since 2/10/2026</p>
+        </div>
+      </div>
+
+      <div class="w-box accent">
+        <strong>Edit Profile</strong>
+        <div style="margin-top:8px;">
+          <div><input class="w-input" placeholder="Username" value="Leo" /></div>
+        </div>
+        <div style="margin-top:8px;">
+          <strong style="font-size:0.8rem;">Choose Avatar:</strong>
+          <div class="avatar-grid">
+            <div class="w-avatar small">1</div>
+            <div class="w-avatar small" style="border-color:#3b82f6; border-style:solid;">2</div>
+            <div class="w-avatar small">3</div>
+            <div class="w-avatar small">4</div>
+            <div class="w-avatar small">5</div>
+            <div class="w-avatar small">6</div>
+            <div class="w-avatar small">7</div>
+          </div>
+        </div>
+        <span class="w-btn primary" style="margin-top:8px;">Save Changes</span>
+      </div>
+
+      <div style="margin-top:16px;">
+        <h4 style="margin-bottom:8px;">Top Scores</h4>
+        <table class="w-table">
+          <thead><tr><th>#</th><th>Score</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>1280</td><td>2/19/2026</td></tr>
+            <tr><td>2</td><td>1050</td><td>2/17/2026</td></tr>
+            <tr><td>3</td><td>880</td><td>2/15/2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== PROFILE PAGE (OTHER USER) ======================== -->
+<div class="mockup-section">
+  <h2>User Profile Page (Other User)</h2>
+  <p class="caption">Same layout but without the edit section. Viewed via leaderboard player link.</p>
+  <div class="wireframe">
+    <div class="w-nav">
+      <span class="brand">FaceGame</span>
+      <div class="links"><span>Home</span><span>Play</span><span>Leaderboard</span></div>
+      <div class="links"><span>Leo (user)</span> <span>Logout</span></div>
+    </div>
+    <div class="w-body">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+        <div class="w-avatar">avatar</div>
+        <div>
+          <h3>Alice</h3>
+          <p style="font-size:0.8rem; color:#888;">Member since 1/28/2026</p>
+        </div>
+      </div>
+
+      <div class="w-box" style="font-size:0.8rem; color:#888;">
+        (No edit section -- this is another user's profile)
+      </div>
+
+      <div style="margin-top:16px;">
+        <h4 style="margin-bottom:8px;">Top Scores</h4>
+        <table class="w-table">
+          <thead><tr><th>#</th><th>Score</th><th>Date</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>1520</td><td>2/18/2026</td></tr>
+            <tr><td>2</td><td>1410</td><td>2/16/2026</td></tr>
+            <tr><td>3</td><td>1200</td><td>2/14/2026</td></tr>
+            <tr><td>4</td><td>980</td><td>2/12/2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

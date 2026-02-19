@@ -46,7 +46,7 @@ router.post("/register", async (req, res, next) => {
     const token = jwt.sign(
       { userId: result.insertedId.toString(), username: username.trim() },
       process.env.JWT_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.status(201).json({ token, username: username.trim() });
@@ -78,7 +78,7 @@ router.post("/login", async (req, res, next) => {
     const token = jwt.sign(
       { userId: user._id.toString(), username: user.username },
       process.env.JWT_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.json({ token, username: user.username });
@@ -92,10 +92,9 @@ router.get("/me", authenticate, async (req, res, next) => {
   try {
     const db = getDb();
     const { ObjectId } = await import("mongodb");
-    const user = await db.collection("users").findOne(
-      { _id: new ObjectId(req.user.userId) },
-      { projection: { passwordHash: 0 } }
-    );
+    const user = await db
+      .collection("users")
+      .findOne({ _id: new ObjectId(req.user.userId) }, { projection: { passwordHash: 0 } });
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }

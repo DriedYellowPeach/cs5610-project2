@@ -17,7 +17,7 @@ async function loadTopScores() {
           <td>${i + 1}</td>
           <td><a href="${BASE}/profile.html?id=${s.userId}">${s.username}</a></td>
           <td>${s.score}</td>
-        </tr>`
+        </tr>`,
       )
       .join("");
   } catch {

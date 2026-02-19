@@ -119,51 +119,34 @@ async function predictWebcam() {
 
   if (results.faceLandmarks) {
     for (const landmarks of results.faceLandmarks) {
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_TESSELATION,
-        { color: faceMeshColor, lineWidth: 0.5 },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_RIGHT_EYE,
-        { color: browRightColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_RIGHT_EYEBROW,
-        { color: browRightColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_LEFT_EYE,
-        { color: browLeftColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_LEFT_EYEBROW,
-        { color: browLeftColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_FACE_OVAL,
-        { color: faceMeshColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_LIPS,
-        { color: faceMeshColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_RIGHT_IRIS,
-        { color: browRightColor },
-      );
-      drawingUtils.drawConnectors(
-        landmarks,
-        FaceLandmarker.FACE_LANDMARKS_LEFT_IRIS,
-        { color: browLeftColor },
-      );
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_TESSELATION, {
+        color: faceMeshColor,
+        lineWidth: 0.5,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYE, {
+        color: browRightColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_EYEBROW, {
+        color: browRightColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYE, {
+        color: browLeftColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_EYEBROW, {
+        color: browLeftColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_FACE_OVAL, {
+        color: faceMeshColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LIPS, {
+        color: faceMeshColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_RIGHT_IRIS, {
+        color: browRightColor,
+      });
+      drawingUtils.drawConnectors(landmarks, FaceLandmarker.FACE_LANDMARKS_LEFT_IRIS, {
+        color: browLeftColor,
+      });
     }
   }
 
@@ -195,9 +178,7 @@ function drawBlendShapes(el, blendShapes) {
         shape.score > 0.2 &&
         now - lastDispatchTimeUp > dispatchCooldown
       ) {
-        document.dispatchEvent(
-          new CustomEvent("move", { detail: { down: shape.score } }),
-        );
+        document.dispatchEvent(new CustomEvent("move", { detail: { down: shape.score } }));
         lastDispatchTimeUp = now;
       }
 
@@ -206,9 +187,7 @@ function drawBlendShapes(el, blendShapes) {
         shape.score > 0.5 &&
         now - lastDispatchTimeDown > dispatchCooldown
       ) {
-        document.dispatchEvent(
-          new CustomEvent("move", { detail: { up: shape.score } }),
-        );
+        document.dispatchEvent(new CustomEvent("move", { detail: { up: shape.score } }));
         lastDispatchTimeDown = now;
       }
     }

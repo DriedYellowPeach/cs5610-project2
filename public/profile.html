@@ -1,57 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile - Facial Expression Game</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div id="nav"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Facial Expression Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="nav"></div>
 
-  <main class="page-container">
-    <div class="profile-header">
-      <img id="profile-avatar" class="avatar-large" src="assets/avatars/default.svg" alt="Avatar">
-      <div>
-        <h1 id="profile-username">Loading...</h1>
-        <p id="profile-since"></p>
+    <main class="page-container">
+      <div class="profile-header">
+        <img
+          id="profile-avatar"
+          class="avatar-large"
+          src="assets/avatars/default.svg"
+          alt="Avatar"
+        />
+        <div>
+          <h1 id="profile-username">Loading...</h1>
+          <p id="profile-since"></p>
+        </div>
       </div>
-    </div>
 
-    <!-- Edit section (own profile only) -->
-    <div class="profile-edit hidden" id="edit-section">
-      <h2>Edit Profile</h2>
-      <form id="edit-form">
-        <div class="form-group">
-          <label for="edit-username">Username</label>
-          <input type="text" id="edit-username" name="username">
-        </div>
-        <div class="form-group">
-          <label>Choose Avatar</label>
-          <div class="avatar-picker" id="avatar-picker"></div>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        <p class="auth-error" id="edit-msg"></p>
-      </form>
-    </div>
+      <!-- Edit section (own profile only) -->
+      <div class="profile-edit hidden" id="edit-section">
+        <h2>Edit Profile</h2>
+        <form id="edit-form">
+          <div class="form-group">
+            <label for="edit-username">Username</label>
+            <input type="text" id="edit-username" name="username" />
+          </div>
+          <div class="form-group">
+            <label>Choose Avatar</label>
+            <div class="avatar-picker" id="avatar-picker"></div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <p class="auth-error" id="edit-msg"></p>
+        </form>
+      </div>
 
-    <!-- Score history -->
-    <h2>Top Scores</h2>
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Score</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody id="scores-body">
-        <tr><td colspan="3">Loading...</td></tr>
-      </tbody>
-    </table>
-  </main>
+      <!-- Score history -->
+      <h2>Top Scores</h2>
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="scores-body">
+          <tr>
+            <td colspan="3">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
 
-  <script type="module" src="js/nav.js"></script>
-  <script type="module" src="js/profile.js"></script>
-</body>
+    <script type="module" src="js/nav.js"></script>
+    <script type="module" src="js/profile.js"></script>
+  </body>
 </html>

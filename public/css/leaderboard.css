@@ -1,0 +1,93 @@
+/* === Tables === */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.leaderboard-table thead {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.leaderboard-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.leaderboard-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.leaderboard-table tbody tr.highlight {
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+/* === Pagination === */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pagination button {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.pagination .page-info {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* === Score highlights === */
+.leaderboard-table tbody tr.highlight-new {
+  background: #fef3c7;
+  font-weight: 600;
+  animation: highlight-fade 3s ease-out;
+}
+
+@keyframes highlight-fade {
+  0% {
+    background: #fde68a;
+  }
+  100% {
+    background: #fef3c7;
+  }
+}

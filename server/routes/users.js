@@ -13,10 +13,9 @@ router.get("/:id", async (req, res, next) => {
     }
 
     const db = getDb();
-    const user = await db.collection("users").findOne(
-      { _id: new ObjectId(req.params.id) },
-      { projection: { passwordHash: 0, email: 0 } }
-    );
+    const user = await db
+      .collection("users")
+      .findOne({ _id: new ObjectId(req.params.id) }, { projection: { passwordHash: 0, email: 0 } });
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -59,15 +58,13 @@ router.put("/me", authenticate, async (req, res, next) => {
     }
 
     const db = getDb();
-    await db.collection("users").updateOne(
-      { _id: new ObjectId(req.user.userId) },
-      { $set: update }
-    );
+    await db
+      .collection("users")
+      .updateOne({ _id: new ObjectId(req.user.userId) }, { $set: update });
 
-    const updated = await db.collection("users").findOne(
-      { _id: new ObjectId(req.user.userId) },
-      { projection: { passwordHash: 0 } }
-    );
+    const updated = await db
+      .collection("users")
+      .findOne({ _id: new ObjectId(req.user.userId) }, { projection: { passwordHash: 0 } });
 
     res.json(updated);
   } catch (err) {

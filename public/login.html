@@ -1,43 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Facial Expression Game</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div id="nav"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Facial Expression Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="nav"></div>
 
-  <main class="auth-container">
-    <div class="auth-card">
-      <h1 id="auth-title">Login</h1>
-      <p class="auth-error" id="error-msg"></p>
+    <main class="auth-container">
+      <div class="auth-card">
+        <h1 id="auth-title">Login</h1>
+        <p class="auth-error" id="error-msg"></p>
 
-      <form id="auth-form">
-        <div class="form-group" id="username-group" style="display: none;">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" placeholder="Choose a username">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Min 6 characters" required>
-        </div>
-        <button type="submit" class="btn btn-primary" id="submit-btn">Login</button>
-      </form>
+        <form id="auth-form">
+          <div class="form-group" id="username-group" style="display: none">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Choose a username" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Min 6 characters"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Login</button>
+        </form>
 
-      <p class="auth-toggle">
-        <span id="toggle-text">Don't have an account?</span>
-        <a href="#" id="toggle-link">Register</a>
-      </p>
-    </div>
-  </main>
+        <p class="auth-toggle">
+          <span id="toggle-text">Don't have an account?</span>
+          <a href="#" id="toggle-link">Register</a>
+        </p>
+      </div>
+    </main>
 
-  <script type="module" src="js/nav.js"></script>
-  <script type="module" src="js/auth.js"></script>
-</body>
+    <script type="module" src="js/nav.js"></script>
+    <script type="module" src="js/auth.js"></script>
+  </body>
 </html>
