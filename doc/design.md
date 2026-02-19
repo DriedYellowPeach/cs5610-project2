@@ -143,10 +143,22 @@ The project is inspired by [Flappy Bird](https://flappybird.io/) and builds upon
 
 See [mockups.html](mockups.html) for visual wireframe mockups of each page. Open the file in a browser to view all page layouts.
 
-Pages covered:
-- Home Page
-- Login / Register Page
-- Game Page
-- Leaderboard Page
-- User Profile Page (own)
-- User Profile Page (other user)
+### Home Page
+
+![Home Page](home-page.png)
+
+### Login / Register Page
+
+![Login / Register Page](login-register-page.png)
+
+### Game Page
+
+![Game Page](game-page.png)
+
+### Leaderboard Page
+
+![Leaderboard Page](leaderboard.png)
+
+### User Profile Page
+
+![User Profile Page](profile.png)
