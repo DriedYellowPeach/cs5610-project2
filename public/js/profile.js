@@ -1,4 +1,5 @@
 import { apiFetch, getCurrentUser } from "./api.js";
+import { BASE } from "./config.js";
 
 const AVATARS = [
   "/assets/avatars/default.svg",
@@ -28,7 +29,7 @@ const currentUser = getCurrentUser();
 const profileId = params.get("id") || (currentUser ? currentUser.userId : null);
 
 if (!profileId) {
-  window.location.href = "/login.html";
+  window.location.href = BASE + "/login.html";
 }
 
 const isOwnProfile = currentUser && currentUser.userId === profileId;
@@ -38,7 +39,7 @@ async function loadProfile() {
     const user = await apiFetch(`/api/users/${profileId}`);
     profileUsername.textContent = user.username;
     profileSince.textContent = `Member since ${new Date(user.createdAt).toLocaleDateString()}`;
-    profileAvatar.src = user.avatarUrl || AVATARS[0];
+    profileAvatar.src = BASE + (user.avatarUrl || AVATARS[0]);
 
     if (isOwnProfile) {
       editSection.classList.remove("hidden");
@@ -77,7 +78,7 @@ function buildAvatarPicker() {
   avatarPicker.innerHTML = "";
   AVATARS.forEach((url) => {
     const img = document.createElement("img");
-    img.src = url;
+    img.src = BASE + url;
     img.alt = "Avatar option";
     img.className = "avatar-option" + (url === selectedAvatar ? " selected" : "");
     img.addEventListener("click", () => {
@@ -103,7 +104,7 @@ editForm.addEventListener("submit", async (e) => {
       }),
     });
     profileUsername.textContent = updated.username;
-    profileAvatar.src = updated.avatarUrl || AVATARS[0];
+    profileAvatar.src = BASE + (updated.avatarUrl || AVATARS[0]);
     editMsg.textContent = "Profile updated!";
     editMsg.style.color = "green";
   } catch (err) {

@@ -1,0 +1,5 @@
+.DS_Store
+
+# project_game_release should be build and generated, never add it to version control
+project_game_release/
+assets/

@@ -1,4 +1,5 @@
 import { isLoggedIn, getCurrentUser, removeToken } from "./api.js";
+import { BASE } from "./config.js";
 
 const navContainer = document.getElementById("nav");
 
@@ -7,23 +8,23 @@ function buildNav() {
   const loggedIn = isLoggedIn();
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/game.html", label: "Play" },
-    { href: "/leaderboard.html", label: "Leaderboard" },
+    { href: BASE + "/", label: "Home" },
+    { href: BASE + "/game/", label: "Play" },
+    { href: BASE + "/leaderboard.html", label: "Leaderboard" },
   ];
 
   const rightLinks = loggedIn
     ? `<div class="nav-right">
-        <a href="/profile.html">${user.username}</a>
+        <a href="${BASE}/profile.html">${user.username}</a>
         <a href="#" id="logout-link">Logout</a>
       </div>`
     : `<div class="nav-right">
-        <a href="/login.html">Login</a>
+        <a href="${BASE}/login.html">Login</a>
       </div>`;
 
   navContainer.innerHTML = `
     <nav class="navbar">
-      <a class="nav-brand" href="/">FaceGame</a>
+      <a class="nav-brand" href="${BASE}/">FaceGame</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-links" id="nav-links">
         ${links.map((l) => `<a href="${l.href}">${l.label}</a>`).join("")}
@@ -37,7 +38,7 @@ function buildNav() {
     logoutLink.addEventListener("click", (e) => {
       e.preventDefault();
       removeToken();
-      window.location.href = "/";
+      window.location.href = BASE + "/";
     });
   }
 

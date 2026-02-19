@@ -1,7 +1,8 @@
 import { apiFetch, setToken, isLoggedIn } from "./api.js";
+import { BASE } from "./config.js";
 
 if (isLoggedIn()) {
-  window.location.href = "/";
+  window.location.href = BASE + "/";
 }
 
 let isRegister = false;
@@ -47,7 +48,7 @@ form.addEventListener("submit", async (e) => {
       });
       setToken(data.token);
     }
-    window.location.href = "/";
+    window.location.href = BASE + "/";
   } catch (err) {
     errorMsg.textContent = err.message;
   }

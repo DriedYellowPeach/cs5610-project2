@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Play - Brow Control</title>
+  </head>
+  <body>
+    <div id="nav"></div>
+
+    <div class="page-container">
+      <main class="main-content">
+        <h1>Brow Control</h1>
+
+        <canvas
+          id="project-game"
+          class="bevy-instance__canvas"
+          style="display: none"
+          width="1280"
+          height="1080"
+        ></canvas>
+
+        <div id="facemesh-group">
+          <button id="toggle-face-mesh-button" style="display: none">
+            Toggle Face Mesh
+          </button>
+
+          <section id="facemesh-section" class="section-hidden">
+            <div id="liveView" class="videoView">
+              <div style="position: relative">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas
+                  class="output_canvas"
+                  id="output_canvas"
+                  style="position: absolute; left: 0px; top: 0px"
+                ></canvas>
+              </div>
+            </div>
+            <div class="blend-shapes">
+              <ul class="blend-shapes-list" id="video-blend-shapes"></ul>
+            </div>
+          </section>
+        </div>
+
+        <div id="score-modal" class="modal-overlay" style="display: none">
+          <div class="modal-content">
+            <h2>Game Over</h2>
+            <p class="modal-score">Score: <span id="modal-score-value">0</span></p>
+            <div class="modal-buttons">
+              <button type="button" id="submit-score-btn" style="display: none">Submit Score</button>
+              <button type="button" id="modal-close-btn">Play Again</button>
+            </div>
+            <p id="score-msg"></p>
+          </div>
+        </div>
+
+        <section id="introduction-section">
+          <div class="description">
+            <div class="game">
+              <h2>Using Brow to Control</h2>
+              <p>
+                <strong>Brow Control</strong> lets you play the game using only
+                your eyebrows! Raise or lower your brows to control the
+                character and dodge incoming obstacles in our exciting
+                <em>Runner</em>
+                game.
+              </p>
+            </div>
+            <div id="reload-page-div" class="webcam" style="display: none">
+              <h2>Camera Required</h2>
+              <p>
+                To play the game, please allow access to your webcam. If you
+                previously denied permission, try reloading the page and
+                granting access when prompted.
+              </p>
+            </div>
+            <div class="face-mesh">
+              <h2>About Face Mesh</h2>
+              <p>
+                Behind the scenes, we use advanced face mesh detection
+                technology to track your eyebrow movements in real time. Curious
+                how it works? Click the <em>Toggle Face Mesh</em> button to
+                visualize the tracking in action!
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../js/nav.js"></script>
+    <script type="module" src="scripts/mediapipe.js"></script>
+    <script type="module" src="scripts/game.js"></script>
+  </body>
+</html>

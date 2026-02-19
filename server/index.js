@@ -16,6 +16,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+// Serve frontend config dynamically from BASE_PATH env var
+app.get("/js/config.js", (req, res) => {
+  res.type("application/javascript");
+  res.send(`export const BASE = ${JSON.stringify(process.env.BASE_PATH || "")};`);
+});
+
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 // API routes

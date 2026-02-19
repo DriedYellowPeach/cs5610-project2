@@ -1,3 +1,5 @@
+import { BASE } from "./config.js";
+
 const TOKEN_KEY = "jwt_token";
 
 export function getToken() {
@@ -33,7 +35,8 @@ export async function apiFetch(url, options = {}) {
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;
   }
-  const res = await fetch(url, { ...options, headers });
+  const fullUrl = url.startsWith("/") ? BASE + url : url;
+  const res = await fetch(fullUrl, { ...options, headers });
   const data = await res.json();
   if (!res.ok) {
     throw new Error(data.error || "Request failed");
