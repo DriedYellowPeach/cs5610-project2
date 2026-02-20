@@ -39,7 +39,7 @@ Technical Stack:
 - Backend: Node.js, Express.js, MongoDB native driver (no Mongoose)
 - Frontend: Vanilla ES6 JavaScript (no frameworks), HTML5, CSS3, WebAssembly
 - Authentication: JWT (jsonwebtoken) with email validation
-- Deployment: Render, MongoDB Atlas
+- Deployment: Docker Compose
 
 Work Distribution:
 

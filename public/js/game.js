@@ -22,14 +22,6 @@ async function initWebcam() {
   }
 }
 
-// --- Game placeholder ---
-// TODO: Replace this section with actual WASM game integration.
-// The WASM game should:
-//   1. Render on #game-canvas
-//   2. Accept facial expression input from the webcam feed
-//   3. Call onGameOver(score) when the game ends
-//   4. Call onScoreUpdate(score) during gameplay
-
 function onScoreUpdate(score) {
   currentScore = score;
   scoreDisplay.textContent = `Score: ${score}`;
