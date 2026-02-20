@@ -62,7 +62,7 @@ async function loadLeaderboard(page, highlightId) {
         row.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
-  } catch (err) {
+  } catch {
     tbody.innerHTML = `<tr><td colspan="4">Failed to load leaderboard.</td></tr>`;
     paginationEl.innerHTML = "";
   }

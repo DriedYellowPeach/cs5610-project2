@@ -1,7 +1,6 @@
 import { apiFetch, isLoggedIn } from "./api.js";
 
 const webcamEl = document.getElementById("webcam");
-const canvas = document.getElementById("game-canvas");
 const scoreDisplay = document.getElementById("score-display");
 const startBtn = document.getElementById("start-btn");
 const gameOverOverlay = document.getElementById("game-over");

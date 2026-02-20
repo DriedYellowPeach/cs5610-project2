@@ -8,7 +8,7 @@ const game_canvas = document.getElementById("project-game");
 game_init();
 
 let once = false;
-const observer_callback = (_mutations, _observer) => {
+const observer_callback = () => {
   if (!once) {
     game_canvas.style.display = "block";
     game_canvas.style.width = "100%";

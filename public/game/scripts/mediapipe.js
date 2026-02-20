@@ -17,7 +17,9 @@ const videoWidth = 320;
 const faceMeshColor = "#7aa2f7";
 const browLeftColor = "#f7768e";
 const browRightColor = "#9ece6a";
+// eslint-disable-next-line no-unused-vars
 const irisLeftColor = "#f7768e";
+// eslint-disable-next-line no-unused-vars
 const irisRightColor = "#9ece6a";
 
 // Setup Button to Toggle Face Mesh
@@ -63,8 +65,7 @@ function hasGetUserMedia() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 }
 
-if (hasGetUserMedia()) {
-} else {
+if (!hasGetUserMedia()) {
   console.warn("getUserMedia() is not supported by your browser");
 }
 let lastVideoTime = -1;
