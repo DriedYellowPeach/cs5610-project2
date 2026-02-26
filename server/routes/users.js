@@ -94,3 +94,9 @@ router.get("/:id/scores", async (req, res, next) => {
 });
 
 export default router;
+
+/*
+Missing DELETE operations
+This collection support Create, Read, and Update but neither exposes a Delete endpoint. The rubric requires full CRUD on at least 2 collections.
+can add DELETE /api/users/me (delete account) with corresponding frontend controls.
+*/
