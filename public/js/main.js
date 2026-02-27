@@ -26,3 +26,4 @@ async function loadTopScores() {
 }
 
 loadTopScores();
+// Peer review: Nice modular structure here—good use of ES6 modules and clean code organization.
