@@ -154,3 +154,10 @@ See [doc/api.md](doc/api.md) for full request/response formats and examples.
 
 - **Neil Wang (Runze Wang)** -- Game page, WebAssembly game, score submission, game-related backend APIs
 - **Aniket Nandi** -- Leaderboard page, user profile page, related backend APIs
+
+---
+
+### 📝 Peer Review Note (CS 5610 – Project 2)
+
+This fork was created for a CS 5610 peer review. I really like the idea of a simple backend with Node, Express, and MongoDB, and how the HTML5 front end connects to the API endpoints.
+
